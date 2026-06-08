@@ -930,7 +930,7 @@ async def _run_to_markdown_job(
     file_path,
     end_pages=10,
     is_ocr=False,
-    formula_enable=True,
+    formula_enable=False,
     table_enable=True,
     image_analysis=True,
     language="ch",
@@ -1071,7 +1071,7 @@ async def stream_to_markdown(
     file_path,
     end_pages=10,
     is_ocr=False,
-    formula_enable=True,
+    formula_enable=False,
     table_enable=True,
     image_analysis=True,
     language="ch",
@@ -1688,7 +1688,7 @@ def main(ctx,
         file_path,
         end_pages=10,
         is_ocr=False,
-        formula_enable=True,
+        formula_enable=False,
         table_enable=True,
         image_analysis=True,
         language="ch",
@@ -1825,7 +1825,7 @@ def main(ctx,
                     )
                 with gr.Group():
                     table_enable = gr.Checkbox(label=i18n("table_enable"), value=True, info=i18n("table_info"))
-                    formula_enable = gr.Checkbox(label=get_formula_label(preferred_option), value=True, info=get_formula_info(preferred_option))
+                    formula_enable = gr.Checkbox(label=get_formula_label(preferred_option), value=False, info=get_formula_info(preferred_option))
                     image_analysis = gr.Checkbox(
                         label=i18n("image_analysis_enable"),
                         value=True,
