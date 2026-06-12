@@ -1,0 +1,16 @@
+[Unit]
+Description=MinerU Docker Compose Services
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/mineru/mineru-service
+ExecStart=/usr/bin/sh /home/mineru/mineru-service/start.sh
+ExecStop=/usr/bin/sh /home/mineru/mineru-service/stop.sh
+RemainAfterExit=yes
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
