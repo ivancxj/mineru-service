@@ -5,12 +5,14 @@ After=docker.service network-online.target
 Wants=network-online.target
 
 [Service]
-Type=oneshot
-WorkingDirectory=/home/mineru/mineru-service
-ExecStart=/usr/bin/sh /home/mineru/mineru-service/start.sh
-ExecStop=/usr/bin/sh /home/mineru/mineru-service/stop.sh
-RemainAfterExit=yes
+Type=simple
+WorkingDirectory=/opt/appmineru/mineru-service
+ExecStart=/usr/bin/sh /opt/app/mineru/mineru-service/start.sh
+ExecStop=/usr/bin/sh /opt/app/mineru/mineru-service/stop.sh
+Restart=on-failure
+RestartSec=5
 TimeoutStartSec=0
+TimeoutStopSec=60
 
 [Install]
 WantedBy=multi-user.target
